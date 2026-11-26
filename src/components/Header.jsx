@@ -68,7 +68,15 @@ export default function Header() {
             aria-current={activeHref === link.href ? "true" : undefined}
             onClick={() => setMenuOpen(false)}
           >
-            {link.label}
+            {link.shortLabel ? (
+              <>
+                <span className="nav-label-full">{link.label}</span>
+                <span className="nav-label-short">{link.shortLabel}</span>
+              </>
+            ) : (
+              link.label
+            )}
+            {link.emoji && <span className="nav-emoji" aria-hidden="true">{link.emoji}</span>}
           </a>
         ))}
         <WhatsAppButton className="button-primary main-nav-cta">Fazer encomenda</WhatsAppButton>

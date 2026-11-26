@@ -1,4 +1,5 @@
 // Configuração central do site: contato e textos ficam todos aqui.
+import { NATAL_ATIVO, natal } from "./natal.js";
 
 // O número vem do arquivo .env (VITE_WHATSAPP_NUMBER), que não vai para o git.
 // Formato: 55 + DDD + número, apenas dígitos. Veja .env.example.
@@ -14,6 +15,8 @@ export const navLinks = [
   { label: "Sobre", href: "#sobre" },
   { label: "Produtos", href: "#produtos" },
   { label: "Galeria", href: "#galeria" },
+  // Só durante o Natal (veja src/data/natal.js)
+  ...(NATAL_ATIVO ? [natal.nav] : []),
   { label: "Depoimentos", href: "#depoimentos" },
   { label: "Contato", href: "#contato" },
 ];

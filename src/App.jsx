@@ -9,6 +9,9 @@ import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
 import Icon from "./components/Icon.jsx";
 import { getWhatsAppLink } from "./data/site.js";
+import { NATAL_ATIVO } from "./data/natal.js";
+import NatalSection from "./natal/NatalSection.jsx";
+import SantaHat from "./natal/SantaHat.jsx";
 
 export default function App() {
   return (
@@ -19,6 +22,7 @@ export default function App() {
         <About />
         <Products />
         <Gallery />
+        {NATAL_ATIVO && <NatalSection />}
         <Testimonials />
         <HowToOrder />
         <Contact />
@@ -32,6 +36,7 @@ export default function App() {
         aria-label="Fazer uma encomenda pelo WhatsApp"
       >
         <Icon name="whatsapp" size={26} />
+        {NATAL_ATIVO && <SantaHat />}
       </a>
     </>
   );
