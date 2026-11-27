@@ -27,8 +27,13 @@ export default function NatalSection() {
         <div className="product-grid natal-grid">
           {natalProducts.map((product, index) => (
             <Reveal as="article" key={product.id} className="product-card natal-card" delay={(index % 3) * 80}>
-              <div className="product-image-wrap">
-                <Photo src={product.image} alt={product.imageAlt} label={product.name} position={product.imagePosition} />
+              <div className={`product-image-wrap ${product.photos.length > 1 ? "natal-photos" : ""}`}>
+                {product.photos.map((photo) => (
+                  <figure key={photo.file} className="natal-photo">
+                    <Photo src={photo.src} alt={photo.alt} label={product.name} position={photo.position} />
+                    {photo.label && <figcaption>{photo.label}</figcaption>}
+                  </figure>
+                ))}
               </div>
               <div className="product-info">
                 <h3>{product.name}</h3>

@@ -180,6 +180,19 @@
 .natal-grid { display: flex; flex-wrap: wrap; justify-content: center; max-width: 1040px; }
 .natal-grid > .natal-card { flex: 0 1 calc((100% - 2 * clamp(16px, 2vw, 24px)) / 3); }
 .natal-card { border-color: #f3dde2; }
+/* Foto do card (uma ou várias lado a lado, com etiqueta) */
+.natal-photo { position: relative; flex: 1 1 0; min-width: 0; height: 100%; margin: 0; overflow: hidden; }
+.natal-photos { display: flex; gap: 3px; background: #fff; }
+.natal-photo figcaption {
+  position: absolute; left: 8px; bottom: 8px; padding: 4px 10px; border-radius: 999px;
+  background: rgba(255, 255, 255, .9); color: var(--natal-wine); font-size: 12px; font-weight: 700; letter-spacing: .02em;
+}
+.natal-card:hover .natal-photo img { transform: scale(1.04); }
+/* Celular: a foto fica numa coluna estreita ao lado do texto, então as duas vão uma em cima da outra */
+@media (max-width: 760px) {
+  .natal-photos { flex-direction: column; }
+  .natal-photo figcaption { left: 6px; bottom: 6px; padding: 3px 8px; font-size: 11px; }
+}
 .natal-button-card { border-color: var(--natal-wine); color: var(--natal-wine); }
 .natal-button-card:hover { background: var(--natal-wine); color: #fff; }
 .natal-section-cta { display: flex; justify-content: center; margin-top: clamp(28px, 4vw, 44px); }

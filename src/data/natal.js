@@ -19,18 +19,32 @@ export const natal = {
   },
 
   // Faixa do pé do Hero (nomes curtos)
-  destaques: ["Pavetone", "Pavetone de morango", "Ninho com morango", "Pavetone na taça", "Banoffee", "Romeu e Julieta", "Caixinhas de biscoito"],
+  destaques: ["Pavetone", "Pavetone de morango", "Ninho com morango", "Banoffee", "Romeu e Julieta", "Caixinhas de biscoito"],
 
   // Cards da seção. Fotos em src/assets/fotos/natal/ com o id no nome (ex.: pavetone.webp).
   // Sem foto, o card mostra o placeholder "Foto temporária".
   // imagePosition: qual parte da foto aparece no recorte do card (fotos em pé).
+  // "photos" (no lugar de id/imageAlt): várias fotos no mesmo card, com "file" = nome do arquivo.
   produtos: [
     {
       id: "pavetone",
       name: "Pavetone",
-      description: "Pavê de chocolate coberto com bolinhas crocantes de chocolate e detalhes dourados.",
-      imageAlt: "Pavetone visto de cima, com cobertura de chocolate e borda de bolinhas de chocolate com pintinhas douradas",
-      imagePosition: "center 45%",
+      description: "Pavê de chocolate coberto com bolinhas crocantes de chocolate e detalhes dourados. Na travessa, para a ceia, ou na taça individual com tampa e laço vermelho, pronto para presentear.",
+      // Duas fotos no mesmo card, lado a lado, cada uma com a sua etiqueta
+      photos: [
+        {
+          file: "pavetone",
+          label: "Na travessa",
+          alt: "Pavetone na travessa, visto de cima, com cobertura de chocolate e borda de bolinhas de chocolate com pintinhas douradas",
+          position: "center 45%",
+        },
+        {
+          file: "pavetone-taca",
+          label: "Na taça",
+          alt: "Pavetone na taça, com camadas de creme branco e de chocolate, morangos no topo e tampa com laço vermelho, em frente a uma árvore de Natal",
+          position: "center 30%",
+        },
+      ],
     },
     {
       id: "pavetone-morango",
@@ -43,13 +57,6 @@ export const natal = {
       name: "Ninho com morango",
       description: "Creme de leite Ninho com morangos frescos, coberto com granulado e gotas de chocolate.",
       imageAlt: "Sobremesa de Ninho com morango com fatias de morango nas camadas e flor de morangos no topo, ao lado de um arranjo de Natal",
-    },
-    {
-      id: "pavetone-taca",
-      name: "Pavetone na taça",
-      description: "O pavetone em porção individual, na taça com tampa e laço vermelho: um presente de Natal pronto.",
-      imageAlt: "Pavetone em taça com camadas de creme branco e de chocolate, morangos no topo e tampa com laço vermelho, em frente a uma árvore de Natal",
-      imagePosition: "center 30%",
     },
     {
       id: "banoffee",
@@ -89,4 +96,10 @@ function findPhoto(id) {
   return match ? photos[match] : null;
 }
 
-export const natalProducts = natal.produtos.map((product) => ({ ...product, image: findPhoto(product.id) }));
+// Cada card recebe a lista "photos" já com o endereço de cada foto (uma ou mais)
+export const natalProducts = natal.produtos.map((product) => ({
+  ...product,
+  photos: (product.photos ?? [{ file: product.id, alt: product.imageAlt, position: product.imagePosition }]).map(
+    (photo) => ({ ...photo, src: findPhoto(photo.file) })
+  ),
+}));
