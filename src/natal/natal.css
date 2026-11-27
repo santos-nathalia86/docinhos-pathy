@@ -88,8 +88,8 @@
 
 /* Faixa dos destaques */
 .natal-strip { overflow: hidden; color: var(--pink); }
-.natal-strip-track { display: flex; align-items: center; justify-content: center; gap: 28px; margin: 0; }
-.natal-strip-item { display: inline-flex; align-items: center; gap: 14px; font: 400 26px/1.2 var(--script); white-space: nowrap; }
+.natal-strip-track { display: flex; align-items: center; justify-content: center; gap: clamp(14px, 1.9vw, 28px); margin: 0; }
+.natal-strip-item { display: inline-flex; align-items: center; gap: clamp(8px, 1vw, 14px); font: 400 clamp(16px, 1.85vw, 26px)/1.2 var(--script); white-space: nowrap; }
 .natal-strip-item svg { flex: none; }
 .natal-strip-item[data-copy] { display: none; }
 
@@ -154,12 +154,15 @@
   .natal-strip-item { gap: 10px; font-size: 20px; }
 }
 
-/* Celular: a faixa corre devagar (a lista aparece duas vezes para emendar sem pulo) */
+/* Tablet e celular: a faixa corre devagar (a lista aparece duas vezes para emendar sem pulo) */
+@media (max-width: 800px) {
+  .natal-strip-track { justify-content: flex-start; gap: 0; width: max-content; }
+  .natal-strip-item { padding-right: 16px; }
+  .natal-strip-item[data-copy] { display: inline-flex; }
+}
 @media (max-width: 560px) {
   .hero--natal { padding-top: clamp(14px, 6svh - 16px, 40px); }
-  .natal-strip-track { justify-content: flex-start; gap: 0; width: max-content; }
-  .natal-strip-item { padding-right: 16px; font-size: 19px; }
-  .natal-strip-item[data-copy] { display: inline-flex; }
+  .natal-strip-item { font-size: 19px; }
 }
 
 /* ---------- Seção "Especial fim de ano" ---------- */
@@ -171,7 +174,9 @@
 }
 .natal-section .eyebrow { color: var(--natal-red); }
 .natal-section-bow { display: flex; justify-content: center; margin-bottom: 10px; }
-.natal-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 1180px; }
+/* 5 produtos: três em cima e dois centralizados embaixo */
+.natal-grid { display: flex; flex-wrap: wrap; justify-content: center; max-width: 1040px; }
+.natal-grid > .natal-card { flex: 0 1 calc((100% - 2 * clamp(16px, 2vw, 24px)) / 3); }
 .natal-card { border-color: #f3dde2; }
 .natal-button-card { border-color: var(--natal-wine); color: var(--natal-wine); }
 .natal-button-card:hover { background: var(--natal-wine); color: #fff; }
@@ -184,10 +189,12 @@
 .natal-section-sparkle--2 { right: 9%; top: 9%; width: 16px; }
 .natal-section-sparkle--3 { right: 5%; top: 22%; width: 12px; }
 @media (max-width: 960px) {
-  .natal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 720px; }
+  .natal-grid { max-width: 720px; }
+  .natal-grid > .natal-card { flex-basis: calc((100% - clamp(16px, 2vw, 24px)) / 2); }
 }
 @media (max-width: 760px) {
-  .natal-grid { grid-template-columns: minmax(0, 1fr); max-width: 560px; }
+  .natal-grid { max-width: 560px; }
+  .natal-grid > .natal-card { flex-basis: 100%; }
 }
 @media (max-width: 560px) {
   .natal-section-cta .button { width: 100%; }
@@ -230,8 +237,8 @@
   .natal-sparkle--6 { animation-delay: -1.8s; }
   .natal-sparkle--7 { animation-delay: -3.6s; }
 }
-@media (max-width: 560px) and (prefers-reduced-motion: no-preference) {
-  .natal-strip-track { animation: natal-strip 22s linear infinite; will-change: transform; }
+@media (max-width: 800px) and (prefers-reduced-motion: no-preference) {
+  .natal-strip-track { animation: natal-strip 26s linear infinite; will-change: transform; }
 }
 /* Celular: a cena entra mais rápido */
 @media (prefers-reduced-motion: no-preference) and (max-width: 800px) {

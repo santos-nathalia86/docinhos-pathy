@@ -19,34 +19,43 @@ export const natal = {
   },
 
   // Faixa do pé do Hero (nomes curtos)
-  destaques: ["Biscoitos decorados", "Cupcakes", "Maçãs do amor", "Pirulitos"],
+  destaques: ["Pavetone", "Pavetone de morango", "Ninho com morango", "Pavetone na taça", "Caixinhas de biscoito"],
 
-  // Cards da seção. Fotos: salve em src/assets/fotos/natal/ com o id no nome
-  // (ex.: biscoitos.webp). Sem foto, o card mostra o placeholder "Foto temporária".
+  // Cards da seção. Fotos em src/assets/fotos/natal/ com o id no nome (ex.: pavetone.webp).
+  // Sem foto, o card mostra o placeholder "Foto temporária".
+  // imagePosition: qual parte da foto aparece no recorte do card (fotos em pé).
   produtos: [
     {
-      id: "biscoitos",
-      name: "Biscoitos decorados de Natal",
-      description: "Biscoitos decorados com o tema de Natal, para enfeitar a mesa da ceia e para presentear.",
-      imageAlt: "Biscoitos decorados de Natal",
+      id: "pavetone",
+      name: "Pavetone",
+      description: "Pavê de chocolate coberto com bolinhas crocantes de chocolate e detalhes dourados.",
+      imageAlt: "Pavetone visto de cima, com cobertura de chocolate e borda de bolinhas de chocolate com pintinhas douradas",
+      imagePosition: "center 45%",
     },
     {
-      id: "cupcakes",
-      name: "Cupcakes de Natal",
-      description: "Cupcakes com decoração natalina para deixar a sua ceia ainda mais doce.",
-      imageAlt: "Cupcakes com decoração de Natal",
+      id: "pavetone-morango",
+      name: "Pavetone de morango",
+      description: "Camadas de creme branco e de chocolate, finalizado com granulado, gotas de chocolate e morangos.",
+      imageAlt: "Pavetone de morango visto de lado, com camadas de creme branco e de chocolate, granulado, gotas de chocolate branco e ao leite e morangos no topo",
     },
     {
-      id: "macas-do-amor",
-      name: "Maçãs do amor de Natal",
-      description: "Maçãs do amor com detalhes de Natal, lindas na mesa e como lembrancinha.",
-      imageAlt: "Maçãs do amor decoradas para o Natal",
+      id: "ninho-com-morango",
+      name: "Ninho com morango",
+      description: "Creme de leite Ninho com morangos frescos, coberto com granulado e gotas de chocolate.",
+      imageAlt: "Sobremesa de Ninho com morango com fatias de morango nas camadas e flor de morangos no topo, ao lado de um arranjo de Natal",
     },
     {
-      id: "pirulitos",
-      name: "Pirulitos de Natal",
-      description: "Pirulitos decorados de Natal, perfeitos para lembrancinhas e para o amigo secreto.",
-      imageAlt: "Pirulitos decorados de Natal",
+      id: "pavetone-taca",
+      name: "Pavetone na taça",
+      description: "O pavetone em porção individual, na taça com tampa e laço vermelho: um presente de Natal pronto.",
+      imageAlt: "Pavetone em taça com camadas de creme branco e de chocolate, morangos no topo e tampa com laço vermelho, em frente a uma árvore de Natal",
+      imagePosition: "center 30%",
+    },
+    {
+      id: "caixinhas-biscoito",
+      name: "Caixinhas de biscoito",
+      description: "Biscoitos com \"Feliz Natal\" em relevo, em caixinhas de Natal para presentear.",
+      imageAlt: "Caixinhas de Feliz Natal em verde e rosa com janelinha mostrando biscoitos com Feliz Natal em relevo",
     },
   ],
 
