@@ -27,7 +27,7 @@ npm run preview
 | Produtos (nome, descrição, foto) | `src/data/products.js` |
 | Fotos da galeria | `src/data/gallery.js` |
 | Cores e fontes | início de `src/styles/global.css` e `index.html` |
-| Tema de Natal (ligar/desligar, textos, produtos) | `src/data/natal.js` |
+| Tema de Natal (ligar/desligar, cardápio, preços) | `src/data/natal.js` |
 
 ## Tema de Natal
 
@@ -36,8 +36,8 @@ selo "Coleção especial de Natal", item "Especial fim de ano 🎄" no menu (com
 Papai Noel no botão do WhatsApp. Tudo fica em `src/natal/` e `src/data/natal.js`.
 
 - **Desligar depois das festas:** em `src/data/natal.js`, troque `NATAL_ATIVO` para `false`.
-- **Fotos dos produtos de Natal:** salve em `src/assets/fotos/natal/` com o id no nome
-  (`biscoitos`, `cupcakes`, `macas-do-amor`, `pirulitos`, ex.: `cupcakes.webp`). Sem foto, aparece o placeholder.
+- **Cardápio de Natal (preços, sabores, condições):** em `src/data/natal.js`, nos blocos `cardapio`, `outros` e `condicoes`.
+- **Fotos de Natal:** ficam em `src/assets/fotos/natal/`; cada item aponta para as suas pelo nome do arquivo (`file`). Sem foto, aparece o placeholder.
 
 ## WhatsApp
 

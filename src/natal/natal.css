@@ -176,23 +176,47 @@
 }
 .natal-section .eyebrow { color: var(--natal-red); }
 .natal-section-bow { display: flex; justify-content: center; margin-bottom: 10px; }
-/* 5 produtos: três em cima e dois centralizados embaixo */
-.natal-grid { display: flex; flex-wrap: wrap; justify-content: center; max-width: 1040px; }
-.natal-grid > .natal-card { flex: 0 1 calc((100% - 2 * clamp(16px, 2vw, 24px)) / 3); }
-.natal-card { border-color: #f3dde2; }
-/* Foto do card (uma ou várias lado a lado, com etiqueta) */
-.natal-photo { position: relative; flex: 1 1 0; min-width: 0; height: 100%; margin: 0; overflow: hidden; }
-.natal-photos { display: flex; gap: 3px; background: #fff; }
-.natal-photo figcaption {
-  position: absolute; left: 8px; bottom: 8px; padding: 4px 10px; border-radius: 999px;
-  background: rgba(255, 255, 255, .9); color: var(--natal-wine); font-size: 12px; font-weight: 700; letter-spacing: .02em;
+/* Cardápio: cards grandes, dois por linha (um no celular) */
+.natal-menu { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 2.4vw, 28px); max-width: 1040px; margin: 0 auto; }
+.natal-card {
+  display: flex; flex-direction: column; overflow: hidden; background: #fff;
+  border: 1px solid #f3dde2; border-radius: 16px; transition: box-shadow .3s;
 }
-.natal-card:hover .natal-photo img { transform: scale(1.04); }
-/* Celular: a foto fica numa coluna estreita ao lado do texto, então as duas vão uma em cima da outra */
-@media (max-width: 760px) {
-  .natal-photos { flex-direction: column; }
-  .natal-photo figcaption { left: 6px; bottom: 6px; padding: 3px 8px; font-size: 11px; }
-}
+.natal-card:hover { box-shadow: var(--shadow); }
+/* overflow: hidden impede que uma foto quadrada ou em pé estique a caixa além da proporção */
+.natal-card-photos { display: flex; gap: 3px; aspect-ratio: 16 / 10; overflow: hidden; background: #fff; }
+.natal-card-photo { flex: 1 1 0; min-width: 0; overflow: hidden; }
+.natal-card-photo img { transition: transform .6s cubic-bezier(.2, .7, .2, 1); }
+.natal-card:hover .natal-card-photo img { transform: scale(1.04); }
+.natal-card-photo .photo-placeholder strong { display: none; }
+.natal-card-body { display: flex; flex: 1; flex-direction: column; gap: 10px; padding: clamp(18px, 2vw, 24px); }
+.natal-card-body h3 { font-size: clamp(22px, 2vw, 26px); font-weight: 400; line-height: 1.15; }
+.natal-card-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.natal-price { flex: none; margin: 0; font: 600 clamp(20px, 1.9vw, 24px)/1 var(--sans); color: var(--natal-wine); white-space: nowrap; }
+.natal-serves { margin: -4px 0 0; font-size: 14px; font-weight: 600; color: var(--ink-soft); }
+.natal-card-text { margin: 0; font-size: 15px; line-height: 1.55; color: var(--ink-soft); }
+.natal-flavors-label { margin: 2px 0 8px; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--natal-red); }
+.natal-flavors ul { display: flex; flex-wrap: wrap; gap: 6px; }
+.natal-flavors li { padding: 5px 12px; border-radius: 999px; background: #fdeef2; font-size: 14px; color: var(--ink); }
+.natal-extras { display: grid; gap: 4px; padding-top: 10px; border-top: 1px dashed #f0d3dc; font-size: 14px; color: var(--ink-soft); }
+.natal-extras li { display: flex; justify-content: space-between; gap: 12px; }
+.natal-extras strong { flex: none; font-weight: 600; color: var(--natal-wine); }
+.natal-card-button { width: 100%; margin-top: auto; }
+.natal-card .natal-card-button.button { min-height: 46px; }
+
+/* Condições (encomendas e pagamento), como no cardápio em PDF */
+.natal-terms { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 2.4vw, 28px); max-width: 1040px; margin: clamp(28px, 4vw, 44px) auto 0; }
+.natal-terms-box { padding: 22px clamp(18px, 2.4vw, 28px); border: 1.5px dashed rgba(232, 180, 90, .8); border-radius: 16px; background: rgba(255, 255, 255, .6); }
+.natal-terms-box h3 { margin-bottom: 10px; font: 400 26px/1.1 var(--script); color: var(--natal-wine); }
+.natal-terms-box ul { display: grid; gap: 8px; }
+.natal-terms-box li { position: relative; padding-left: 18px; font-size: 15px; line-height: 1.55; color: #5a4638; }
+.natal-terms-box li::before { content: ""; position: absolute; left: 2px; top: .6em; width: 7px; height: 7px; border-radius: 50%; background: var(--natal-gold); }
+
+/* Outras delícias: sem preço, cards menores */
+.natal-others-title { margin: clamp(44px, 6vw, 72px) 0 clamp(18px, 2.4vw, 28px); text-align: center; font-size: clamp(26px, 3vw, 36px); font-weight: 300; }
+.natal-others { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 2.4vw, 28px); max-width: 760px; margin: 0 auto; }
+.natal-card--other .natal-card-photos { aspect-ratio: 4 / 3; }
+.natal-card--other .natal-card-body h3 { font-size: clamp(20px, 1.8vw, 23px); }
 .natal-button-card { border-color: var(--natal-wine); color: var(--natal-wine); }
 .natal-button-card:hover { background: var(--natal-wine); color: #fff; }
 .natal-section-cta { display: flex; justify-content: center; margin-top: clamp(28px, 4vw, 44px); }
@@ -203,13 +227,12 @@
 .natal-section-sparkle--1 { left: 8%; top: 12%; }
 .natal-section-sparkle--2 { right: 9%; top: 9%; width: 16px; }
 .natal-section-sparkle--3 { right: 5%; top: 22%; width: 12px; }
-@media (max-width: 960px) {
-  .natal-grid { max-width: 720px; }
-  .natal-grid > .natal-card { flex-basis: calc((100% - clamp(16px, 2vw, 24px)) / 2); }
-}
 @media (max-width: 760px) {
-  .natal-grid { max-width: 560px; }
-  .natal-grid > .natal-card { flex-basis: 100%; }
+  .natal-menu, .natal-terms { grid-template-columns: minmax(0, 1fr); max-width: 560px; }
+  .natal-others { max-width: 560px; gap: 12px; }
+  .natal-card--other .natal-card-body { padding: 14px; gap: 8px; }
+  .natal-card--other .natal-card-text { font-size: 13.5px; }
+  .natal-card--other .natal-card-button.button { min-height: 40px; padding: 8px 10px; font-size: 13.5px; }
 }
 @media (max-width: 560px) {
   .natal-section-cta .button { width: 100%; }
