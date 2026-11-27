@@ -29,7 +29,7 @@ export const natal = {
     {
       id: "pavetone",
       name: "Pavetone",
-      description: "Pavê de chocolate coberto com bolinhas crocantes de chocolate e detalhes dourados. Na travessa, para a ceia, ou na taça individual com tampa e laço vermelho, pronto para presentear.",
+      description: "Pavê de chocolate coberto com bolinhas crocantes de chocolate e detalhes dourados. Na travessa, para a ceia, ou na taça com tampa e laço vermelho, pronto para presentear.",
       // Duas fotos no mesmo card, lado a lado, cada uma com a sua etiqueta
       photos: [
         {
