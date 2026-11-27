@@ -3,13 +3,18 @@ import WhatsAppButton from "./WhatsAppButton.jsx";
 import { hero, heroMobile } from "../data/site.js";
 import HeroScene from "./HeroScene.jsx";
 import { products } from "../data/products.js";
+import { NATAL_ATIVO } from "../data/natal.js";
+import NatalHero from "../natal/NatalHero.jsx";
 
 // Faixa corrida do celular: nomes reais do cardápio, sem o "personalizado(s)" do fim.
 const marqueeItems = products.map((product) => product.name.replace(/\s+personalizad[oa]s?$/i, ""));
 
 // Um único Hero para as duas telas: os textos "only-desktop" / "only-mobile"
 // são trocados por CSS, e a composição do celular fica toda no global.css.
+// Durante o Natal (src/data/natal.js), o topo é o NatalHero.
 export default function Hero() {
+  if (NATAL_ATIVO) return <NatalHero />;
+
   return (
     <section className="hero" id="inicio">
       {/* Uma única forma orgânica rosa clarinho atrás da ilustração (decorativa) */}

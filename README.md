@@ -27,6 +27,17 @@ npm run preview
 | Produtos (nome, descrição, foto) | `src/data/products.js` |
 | Fotos da galeria | `src/data/gallery.js` |
 | Cores e fontes | início de `src/styles/global.css` e `index.html` |
+| Tema de Natal (ligar/desligar, cardápio, preços) | `src/data/natal.js` |
+
+## Tema de Natal
+
+Durante as festas, o site usa o visual especial de Natal: topo com a árvore iluminada, enfeites pendurados,
+selo "Coleção especial de Natal", item "Especial fim de ano 🎄" no menu (com uma seção própria) e gorro de
+Papai Noel no botão do WhatsApp. Tudo fica em `src/natal/` e `src/data/natal.js`.
+
+- **Desligar depois das festas:** em `src/data/natal.js`, troque `NATAL_ATIVO` para `false`.
+- **Cardápio de Natal (preços, sabores, condições):** em `src/data/natal.js`, nos blocos `cardapio`, `outros` e `condicoes`.
+- **Fotos de Natal:** ficam em `src/assets/fotos/natal/`; cada item aponta para as suas pelo nome do arquivo (`file`). Sem foto, aparece o placeholder.
 
 ## WhatsApp
 
