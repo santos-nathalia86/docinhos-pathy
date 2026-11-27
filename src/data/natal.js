@@ -19,7 +19,7 @@ export const natal = {
   },
 
   // Faixa do pé do Hero (nomes curtos)
-  destaques: ["Pavetone", "Pavetone de morango", "Ninho com morango", "Pavetone na taça", "Caixinhas de biscoito"],
+  destaques: ["Pavetone", "Pavetone de morango", "Ninho com morango", "Pavetone na taça", "Banoffee", "Romeu e Julieta", "Caixinhas de biscoito"],
 
   // Cards da seção. Fotos em src/assets/fotos/natal/ com o id no nome (ex.: pavetone.webp).
   // Sem foto, o card mostra o placeholder "Foto temporária".
@@ -50,6 +50,19 @@ export const natal = {
       description: "O pavetone em porção individual, na taça com tampa e laço vermelho: um presente de Natal pronto.",
       imageAlt: "Pavetone em taça com camadas de creme branco e de chocolate, morangos no topo e tampa com laço vermelho, em frente a uma árvore de Natal",
       imagePosition: "center 30%",
+    },
+    {
+      id: "banoffee",
+      name: "Banoffee",
+      description: "Base crocante, camada cremosa de doce de leite com banana e chantilly, finalizado com canela.",
+      imageAlt: "Banoffee visto de lado, com base de biscoito, camada de doce de leite e rosetas de chantilly polvilhadas com canela",
+    },
+    {
+      id: "romeu-e-julieta",
+      name: "Romeu e Julieta",
+      description: "A dupla clássica de goiabada e queijo, com cobertura gratinada e uma arvorezinha de goiabada.",
+      imageAlt: "Romeu e Julieta em travessa de vidro, com cobertura gratinada dourada e uma árvore de Natal de goiabada no centro",
+      imagePosition: "center 42%",
     },
     {
       id: "caixinhas-biscoito",

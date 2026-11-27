@@ -87,11 +87,20 @@
 .hero-media.natal-scene::after { display: none; }
 
 /* Faixa dos destaques */
+/* A lista é longa demais para ficar parada: corre devagar em todas as telas
+   (aparece duas vezes, e andar metade da largura emenda o fim no começo) */
 .natal-strip { overflow: hidden; color: var(--pink); }
-.natal-strip-track { display: flex; align-items: center; justify-content: center; gap: clamp(14px, 1.9vw, 28px); margin: 0; }
-.natal-strip-item { display: inline-flex; align-items: center; gap: clamp(8px, 1vw, 14px); font: 400 clamp(16px, 1.85vw, 26px)/1.2 var(--script); white-space: nowrap; }
+.natal-strip-track { display: flex; align-items: center; width: max-content; margin: 0; }
+.natal-strip-item {
+  display: inline-flex; align-items: center; gap: clamp(8px, 1vw, 14px); padding-right: clamp(20px, 2.4vw, 34px);
+  font: 400 clamp(18px, 1.7vw, 25px)/1.2 var(--script); white-space: nowrap;
+}
 .natal-strip-item svg { flex: none; }
-.natal-strip-item[data-copy] { display: none; }
+/* Sem animação: uma lista só, centralizada e quebrando linha se precisar */
+@media (prefers-reduced-motion: reduce) {
+  .natal-strip-track { width: auto; flex-wrap: wrap; justify-content: center; row-gap: 4px; padding: 0 var(--gutter); }
+  .natal-strip-item[data-copy] { display: none; }
+}
 
 /* Computador: texto à esquerda, cena à direita apoiada na onda rosa do pé */
 @media (min-width: 801px) {
@@ -150,16 +159,9 @@
     grid-row: 6; justify-self: center; width: min(100% - 32px, 560px); margin: 14px 0 18px; padding: 11px 0;
     border-radius: 999px; background: rgba(255, 255, 255, .72); box-shadow: 0 8px 20px -14px rgba(189, 36, 116, .45);
   }
-  .natal-strip-track { gap: 16px; }
-  .natal-strip-item { gap: 10px; font-size: 20px; }
+  .natal-strip-item { gap: 10px; padding-right: 16px; font-size: 20px; }
 }
 
-/* Tablet e celular: a faixa corre devagar (a lista aparece duas vezes para emendar sem pulo) */
-@media (max-width: 800px) {
-  .natal-strip-track { justify-content: flex-start; gap: 0; width: max-content; }
-  .natal-strip-item { padding-right: 16px; }
-  .natal-strip-item[data-copy] { display: inline-flex; }
-}
 @media (max-width: 560px) {
   .hero--natal { padding-top: clamp(14px, 6svh - 16px, 40px); }
   .natal-strip-item { font-size: 19px; }
@@ -237,8 +239,11 @@
   .natal-sparkle--6 { animation-delay: -1.8s; }
   .natal-sparkle--7 { animation-delay: -3.6s; }
 }
+@media (prefers-reduced-motion: no-preference) {
+  .natal-strip-track { animation: natal-strip 45s linear infinite; will-change: transform; }
+}
 @media (max-width: 800px) and (prefers-reduced-motion: no-preference) {
-  .natal-strip-track { animation: natal-strip 26s linear infinite; will-change: transform; }
+  .natal-strip-track { animation-duration: 34s; }
 }
 /* Celular: a cena entra mais rápido */
 @media (prefers-reduced-motion: no-preference) and (max-width: 800px) {
