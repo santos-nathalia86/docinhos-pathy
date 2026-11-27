@@ -70,7 +70,9 @@ export const natal = {
       price: "R$ 50,00",
       serves: "Caixa de biscoito",
       description: "Biscoitos amanteigados com \"Feliz Natal\" em relevo, em caixinhas de Natal para presentear.",
+      // A primeira foto é a capa: fica maior que a outra no card ("cover")
       photos: [
+        { file: "caixinhas-biscoito-papai-noel", cover: true, alt: "Caixinha de Natal rosa com Papai Noel e janelinha com biscoitos, ao lado de biscoitos em formato de Papai Noel", position: "center 45%" },
         { file: "caixinhas-biscoito", alt: "Caixinhas de Feliz Natal em verde e rosa com janelinha mostrando biscoitos com Feliz Natal em relevo" },
       ],
     },

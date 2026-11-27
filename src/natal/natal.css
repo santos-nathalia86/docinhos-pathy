@@ -186,6 +186,7 @@
 /* overflow: hidden impede que uma foto quadrada ou em pé estique a caixa além da proporção */
 .natal-card-photos { display: flex; gap: 3px; aspect-ratio: 16 / 10; overflow: hidden; background: #fff; }
 .natal-card-photo { flex: 1 1 0; min-width: 0; overflow: hidden; }
+.natal-card-photo--cover { flex-grow: 1.7; }
 .natal-card-photo img { transition: transform .6s cubic-bezier(.2, .7, .2, 1); }
 .natal-card:hover .natal-card-photo img { transform: scale(1.04); }
 .natal-card-photo .photo-placeholder strong { display: none; }

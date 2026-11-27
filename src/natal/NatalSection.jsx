@@ -10,7 +10,7 @@ function CardPhotos({ item }) {
   return (
     <div className={`natal-card-photos ${item.photos.length > 1 ? "is-multi" : ""}`}>
       {item.photos.map((photo) => (
-        <div key={photo.file} className="natal-card-photo">
+        <div key={photo.file} className={`natal-card-photo ${photo.cover ? "natal-card-photo--cover" : ""}`}>
           <Photo src={photo.src} alt={photo.alt} label={item.name} position={photo.position} />
         </div>
       ))}
